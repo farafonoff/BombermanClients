@@ -42,10 +42,14 @@ void GameClientBomberman::update_func(std::function<void()> _message_handler)
 		web_socket->poll();
 		web_socket->dispatch([&](const std::string &message)
 		{
+#ifdef _WIN32
 			int size_needed = MultiByteToWideChar(CP_UTF8, 0, &message[0], (int)message.size(), NULL, 0);
 			std::wstring wmessage(size_needed, 0);
 			MultiByteToWideChar(CP_UTF8, 0, &message[0], (int)message.size(), &wmessage[0], size_needed);
-
+#else
+			std::wstring wmessage(message.begin(), message.end());
+#endif
+			
 			uint32_t size = sqrt(wmessage.size() - 6);
 			if (map_size != size)
 			{

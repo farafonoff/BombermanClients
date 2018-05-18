@@ -18,10 +18,10 @@ bool is_block(BombermanBlocks _block)
 		_block == BombermanBlocks::OtherBombBomberman;
 }
 
-void main()
+int main()
 {
 	srand(time(0));
-	GameClientBomberman *gcb = new GameClientBomberman("localhost:8080", "e@mail.org", "00000000000000000000");
+	GameClientBomberman *gcb = new GameClientBomberman("epruizhsa0001t2:8080", "gcc@gmail.com", "gcc");
 	gcb->Run([&]()
 	{
 		BombermanBlocks **map = gcb->get_map();
