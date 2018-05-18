@@ -21,7 +21,7 @@ bool is_block(BombermanBlocks _block)
 int main()
 {
 	srand(time(0));
-	GameClientBomberman *gcb = new GameClientBomberman("epruizhsa0001t2:8080", "gcc@gmail.com", "gcc");
+	GameClientBomberman *gcb = new GameClientBomberman("epruizhw0388:8080", "gcc@gmail.com", "104139167260245201");
 	gcb->Run([&]()
 	{
 		BombermanBlocks **map = gcb->get_map();
